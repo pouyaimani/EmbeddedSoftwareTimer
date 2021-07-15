@@ -14,9 +14,11 @@ typedef struct Timer_t{
 	bool singleShot;
 } Timer_t;
 
-__interrupt void tikTok(void);
+__interrupt void tikTok(void); // tic toc isr
 Uint64 getTimeMs();
-Timer_t *newTimer(void (*funPtr)(Timer_t *timer, Pedestal_t *), bool singleShot);
+// bellow function istantiate a timer and take isr function as its argument
+// also take a bool variale that determine timer is single shot or not
+Timer_t *newTimer(void (*funPtr)(Timer_t *timer), bool singleShot);
 Error_t initTicToc();
 Error_t deleteTimer(Timer_t *timer);
 bool isTimerListEmpty();
