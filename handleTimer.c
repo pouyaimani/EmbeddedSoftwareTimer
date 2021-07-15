@@ -3,7 +3,10 @@
 
 int main()
 {
-	handleTimer();
+	initTicToc();
+	while(1) {
+		handleTimer();
+	}
 }
 
 Error_t handleTimer()
