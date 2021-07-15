@@ -10,15 +10,16 @@ Error_t handleTimer()
 {
 	if (isTimerListEmpty())
 		return E_OOPS;
-	if (getTimeMs() - timersList->setPoint > timersList->interval) {
-	    timersList->isr(timersList, pedestal);
-	    if(timersList->singleShot) {
-	        deleteTimer(timersList);
+	if (getTimeMs() - (*timerList)->setPoint > (*timerList)->interval) {
+	    (*timerList)->isr((*timerList), pedestal);
+	    if((*timerList)->singleShot) {
+	        deleteTimer((*timerList));
+	        timerList = getTimer();
 	    } else {
-	        timersList->setPoint = getTimeMs();
-	        timersList = timersList->next;
+	        (*timerList)->setPoint = getTimeMs();
+	        (*timerList) = (*timerList)->next;
 	    }
 	} else
-	    timersList = timersList->next;
+	    (*timerList) = (*timerList)->next;
 	return E_DONE;
 }
