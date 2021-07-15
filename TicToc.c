@@ -8,12 +8,9 @@ static int timersNum = 0;
 
 Error_t initTicToc()
 {
-	EALLOW;
-    PieVectTable.TINT1 = &tikTok;
-    ConfigCpuTimer(&CpuTimer1, 1, 90000);
-    CpuTimer1Regs.TCR.all = 0x4001;
-    IER |= M_INT13; // Enable timer interrupt
-    EDIS;
+	// you must init your timer based on micro controller you use 
+	// here and define your timer isr 
+	// timer isr is => void tikTok(void)
     return E_DONE;
 }
 
