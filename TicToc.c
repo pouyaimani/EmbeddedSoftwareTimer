@@ -1,5 +1,4 @@
 #include "TicToc.h"
-#include "DSP28x_Project.h"
 #include "stdlib.h"
 
 static volatile Uint64 time = 0;

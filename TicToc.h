@@ -1,9 +1,6 @@
 #ifndef TICTOC_H_
 #define TICTOC_H_
 
-#include "Pedestal/common.h"
-#include "Pedestal/Pedestal.h"
-
 typedef struct Timer_t{
 	struct Timer_t *next;
 	struct Timer_t *previous;
