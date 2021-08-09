@@ -1,6 +1,14 @@
 #ifndef TICTOC_H_
 #define TICTOC_H_
 
+typedef enum {
+    E_DONE,
+    E_OOPS,
+    E_OK,
+	E_NOT_COMPLETED,
+	E_NOT_IMPLEMENTED,
+} Error_t;
+
 typedef struct Timer_t{
 	struct Timer_t *next;
 	struct Timer_t *previous;
